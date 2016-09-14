@@ -4,13 +4,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class CounterActivity extends AppCompatActivity {
+
+    private Button mPlusButton;
+    private Button mMinusButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counter);
+        mPlusButton = (Button) findViewById(R.id.plus_button);
+        mPlusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Does nothing yet
+            }
+        });
+        mMinusButton = (Button) findViewById(R.id.minus_button);
+        mMinusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Does nothing yet
+            }
+        });
     }
 
     @Override
