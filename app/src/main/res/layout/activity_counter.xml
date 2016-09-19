@@ -8,7 +8,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:text="@string/prompt_text"/>
+        android:id="@+id/counter"/>
+        //android:text="@string/prompt_text"
+
 
     <LinearLayout
         android:layout_width="wrap_content"

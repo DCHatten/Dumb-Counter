@@ -2,6 +2,6 @@
     <string name="app_name">CIS298Assignment1</string>
     <string name="plus_button">+</string>
     <string name="minus_button">-</string>
-    <string name="prompt_text">Hello world!</string>
+    <string name="prompt_text">Keep Track!</string>
     <string name="action_settings">Settings</string>
 </resources>

@@ -2,32 +2,37 @@ package edu.kvcc.cis298.cis298assignment1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class CounterActivity extends AppCompatActivity {
 
     private Button mPlusButton;
     private Button mMinusButton;
+    public int counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counter);
+
+
         mPlusButton = (Button) findViewById(R.id.plus_button);
         mPlusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Does nothing yet
+                PlusButton();
             }
         });
         mMinusButton = (Button) findViewById(R.id.minus_button);
         mMinusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Does nothing yet
+                MinusButton();
             }
         });
     }
@@ -52,5 +57,27 @@ public class CounterActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public int PlusButton() {
+        if (counter < 21) {
+            counter++;
+            return counter;
+        } else {
+            Toast.makeText(CounterActivity.this, "Warning: Your count is above 20", Toast.LENGTH_SHORT).show();
+            counter++;
+            return counter;
+        }
+    }
+
+    public int MinusButton() {
+        if (counter < 21) {
+            counter--;
+            return counter;
+        } else {
+            Toast.makeText(CounterActivity.this, "Warning: Your count is above 20", Toast.LENGTH_SHORT).show();
+            counter--;
+            return counter;
+        }
     }
 }
