@@ -18,12 +18,13 @@ public class CounterActivity extends AppCompatActivity {
     private Button mMinusButton;
     public int counter = 0;
     public String temp = "0";
-    TextView count = (TextView)findViewById(R.id.TextView);
+    public TextView count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counter);
+        count = (TextView)findViewById(R.id.TextView);
 
         mPlusButton = (Button) findViewById(R.id.plus_button);
         mPlusButton.setOnClickListener(new View.OnClickListener() {
@@ -42,12 +43,12 @@ public class CounterActivity extends AppCompatActivity {
     }
 
     public void PlusButton() {
-        if (counter < 21) {
+        if (counter == 20) {
+            Toast.makeText(CounterActivity.this, "Warning: Your count is above 20", Toast.LENGTH_SHORT).show();
             counter++;
             temp = String.valueOf(counter);
             count.setText(temp);
         } else {
-            Toast.makeText(CounterActivity.this, "Warning: Your count is above 20", Toast.LENGTH_SHORT).show();
             counter++;
             temp = String.valueOf(counter);
             count.setText(temp);
@@ -55,16 +56,9 @@ public class CounterActivity extends AppCompatActivity {
     }
 
     public void MinusButton() {
-        if (counter <= 20) {
-            counter--;
-            temp = Integer.toString(counter);
-            count.setText(temp);
-        } else {
-            Toast.makeText(CounterActivity.this, "Warning: Your count is above 20", Toast.LENGTH_SHORT).show();
-            counter--;
-            temp = Integer.toString(counter);
-            count.setText(temp);
-        }
+        counter--;
+        temp = Integer.toString(counter);
+        count.setText(temp);
     }
 
     @Override
