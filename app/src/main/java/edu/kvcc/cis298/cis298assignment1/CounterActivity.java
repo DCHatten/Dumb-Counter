@@ -7,19 +7,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Set;
 
 public class CounterActivity extends AppCompatActivity {
 
     private Button mPlusButton;
     private Button mMinusButton;
-    public int counter;
+    public int counter = 0;
+    public String temp = "0";
+    TextView count = (TextView)findViewById(R.id.TextView);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counter);
-
 
         mPlusButton = (Button) findViewById(R.id.plus_button);
         mPlusButton.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +39,32 @@ public class CounterActivity extends AppCompatActivity {
                 MinusButton();
             }
         });
+    }
+
+    public void PlusButton() {
+        if (counter < 21) {
+            counter++;
+            temp = String.valueOf(counter);
+            count.setText(temp);
+        } else {
+            Toast.makeText(CounterActivity.this, "Warning: Your count is above 20", Toast.LENGTH_SHORT).show();
+            counter++;
+            temp = String.valueOf(counter);
+            count.setText(temp);
+        }
+    }
+
+    public void MinusButton() {
+        if (counter <= 20) {
+            counter--;
+            temp = Integer.toString(counter);
+            count.setText(temp);
+        } else {
+            Toast.makeText(CounterActivity.this, "Warning: Your count is above 20", Toast.LENGTH_SHORT).show();
+            counter--;
+            temp = Integer.toString(counter);
+            count.setText(temp);
+        }
     }
 
     @Override
@@ -57,27 +87,5 @@ public class CounterActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public int PlusButton() {
-        if (counter < 21) {
-            counter++;
-            return counter;
-        } else {
-            Toast.makeText(CounterActivity.this, "Warning: Your count is above 20", Toast.LENGTH_SHORT).show();
-            counter++;
-            return counter;
-        }
-    }
-
-    public int MinusButton() {
-        if (counter < 21) {
-            counter--;
-            return counter;
-        } else {
-            Toast.makeText(CounterActivity.this, "Warning: Your count is above 20", Toast.LENGTH_SHORT).show();
-            counter--;
-            return counter;
-        }
     }
 }
